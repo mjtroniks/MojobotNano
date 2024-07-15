@@ -1,4 +1,4 @@
-# Mojobot Nano BLE Robot
+# Mojobot Nano by MJtroniks
 ![Mojobot nano](https://github.com/user-attachments/assets/35aa67c4-03c1-46ed-8880-0a4dccc69f64)
 
 Welcome to the official repository for the Mojobot Nano BLE Robot! This project uses the Arduino Nano BLE to control a robot equipped with infrared sensors for path tracking, ultrasonic sensors for obstacle avoidance, and LEDs for status indication. Enjoy the added functionality of Bluetooth Low Energy (BLE) for remote control and monitoring.
