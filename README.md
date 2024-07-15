@@ -1,47 +1,70 @@
 # Mojobot Nano by MJtroniks
-![Mojobot nano](https://github.com/user-attachments/assets/35aa67c4-03c1-46ed-8880-0a4dccc69f64)
+![Mojobot Nano](https://github.com/user-attachments/assets/35aa67c4-03c1-46ed-8880-0a4dccc69f64)
 
 ## Introduction
 
-Mojobot Pico by MJtronics is an innovative robot based on Arduino nano 33 BLE designed for educational purposes and hobbyist projects, providing a versatile platform for learning and experimentation. 
+Mojobot Nano by MJtroniks is an innovative robot based on Arduino Nano 33 BLE, designed for educational purposes and hobbyist projects. It offers a versatile platform for learning and experimentation.
 
-## Get started
+## Programming Platforms
 
-- [**Micropython**]() 
+- **Micropython:** Explore advanced robotics and sensor integration with a high-level programming approach.
+- **C++:** Dive deep into low-level control and optimization of robotics functionalities.
+- **Makecode:** An accessible way for beginners to start programming Mojobot Nano, providing a visual programming experience.
+
+## Get Started
+
+- [**Micropython**]()
 - [**C++**]()
 - [**Makecode**]()
 
-
 ## Features
 
-- **Path Tracking:** Utilizes infrared sensors to follow a designated path.
+- **Path Tracking:** Utilizes infrared sensors to follow designated paths.
 - **Obstacle Avoidance:** Employs an ultrasonic sensor to detect and avoid obstacles.
 - **LED Indicators:** Provides visual feedback through LEDs.
-- **BLE Control:** Control and monitor the robot remotely via Bluetooth.
+- **BLE Control:** Enables remote control and monitoring via Bluetooth Low Energy.
 
 ## Hardware Components
 
-- Arduino Nano BLE
-- Infrared Sensors:
-  - **Left:** Pin D5
-  - **Right:** Pin D4
-- Motors:
-  - **Left Motor PWM:** D7
-  - **Right Motor PWM:** D6
-  - **Left Motor Direction:** D8
-  - **Right Motor Direction:** D9
-- LEDs:
-  - **Left Red LED:** A2
-  - **Left Blue LED:** A3
-  - **Left Green LED:** D10
-  - **Right Red LED:** D11
-  - **Right Blue LED:** A6
-  - **Right Green LED:** A7
-- Ultrasonic Sensor:
+### Sensors and Actuators
+- **Infrared Sensors:**
+  - **Left:** Connected to Pin D5
+  - **Right:** Connected to Pin D4
+- **Ultrasonic Sensor:**
   - **Trigger Pin:** D2
   - **Echo Pin:** D3
 
-## License
+### Motors
+- **Left Motor:**
+  - **PWM:** D7
+  - **Direction:** D8
+- **Right Motor:**
+  - **PWM:** D6
+  - **Direction:** D9
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+### LEDs
+- **Left LEDs:**
+  - **Red:** A2
+  - **Blue:** A3
+  - **Green:** D10
+- **Right LEDs:**
+  - **Red:** D11
+  - **Blue:** A6
+  - **Green:** A7
+
+## Pin Utilization
+
+### Used Pins
+- D2, D3, D4, D5, D6, D7, D8, D9, D10, D11
+- A2, A3, A6, A7
+
+### Available Pins
+- A0, A1, A4, A5
+- D0, D1, D12, D13 (Note: D13 typically has an LED connected to it on most Arduino boards)
+
+## Applications
+
+Mojobot Nano is ideal for educational purposes, allowing users to explore robotics, sensor integration, and programming. It serves as a great platform for learning about motor control, ultrasonic sensing, and infrared communication.
+
+This versatile and user-friendly robot encourages creativity and experimentation in the field of robotics, making it an excellent choice for students and hobbyists alike.
 
