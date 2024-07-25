@@ -1,5 +1,9 @@
 # Mojobot Nano by MJtroniks
-![Mojobot Nano](https://github.com/user-attachments/assets/35aa67c4-03c1-46ed-8880-0a4dccc69f64)
+
+
+https://github.com/user-attachments/assets/8ce8e9cc-e923-49d6-9cca-5eeadf6caf4b
+
+
 
 ## Introduction
 
