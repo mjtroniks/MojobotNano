@@ -1,7 +1,8 @@
 # Mojobot Nano by MJtroniks
 
 
-https://github.com/user-attachments/assets/8ce8e9cc-e923-49d6-9cca-5eeadf6caf4b
+
+https://github.com/user-attachments/assets/dc9658d9-9539-45e1-95e3-f2c358f5202e
 
 
 
