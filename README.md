@@ -30,6 +30,7 @@ Mojobot Nano by MJtroniks is an innovative robot based on Arduino Nano 33 BLE, d
 - **BLE Control:** Enables remote control and monitoring via Bluetooth Low Energy.
 
 ## Hardware Components
+
 ### Microcontroller
 
 - Arduino Nano 33 BLE
@@ -73,5 +74,5 @@ Mojobot Nano by MJtroniks is an innovative robot based on Arduino Nano 33 BLE, d
 
 Mojobot Nano is ideal for educational purposes, allowing users to explore robotics, sensor integration, and programming. It serves as a great platform for learning about motor control, ultrasonic sensing, and infrared communication.
 
-This versatile and user-friendly robot encourages creativity and experimentation in the field of robotics, making it an excellent choice for students and hobbyists alike.
+This versatile and user friendly robot encourages creativity and experimentation in the field of robotics, making it an excellent choice for students and hobbyists alike.
 

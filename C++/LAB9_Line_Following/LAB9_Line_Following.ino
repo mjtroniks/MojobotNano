@@ -1,3 +1,4 @@
+#MJtroniks
 #include <Arduino.h>
 
 // Ultrasonic sensor pins
@@ -149,5 +150,10 @@ void loop() {
         motors_speed(0, 0);  // Stop motors
     }
 
+
     
 }
+
+    delay(100);  // Adjust delay as needed
+}
+
