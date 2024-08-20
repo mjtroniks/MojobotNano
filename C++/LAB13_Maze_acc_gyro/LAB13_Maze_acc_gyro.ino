@@ -1,6 +1,10 @@
 #include <Arduino.h>
 #include <Arduino_LSM9DS1.h>  // Include the library for the built-in accelerometer and gyroscope
 
+// Ultrasonic sensor pins
+const int TRIGGER_PIN = 2;
+const int ECHO_PIN = 3;
+
 // Motor pins
 const int MOTOR1_PWM_PIN = 7;
 const int MOTOR1_DIR_PIN = 8;
@@ -18,11 +22,23 @@ float y_position = 0;
 unsigned long previous_time;
 
 // Control gains
-float Kp_heading = 0.08;   // Slightly reduce proportional gain for heading correction
-float Kp_position = 0.03;  // Slightly reduce proportional gain for position correction
+float Kp_heading = 0.08;   // Proportional gain for heading correction
+float Kp_position = 0.03;  // Proportional gain for position correction
 
 // Correction factor to balance motor speeds
 float motor_correction_factor = 0.975;  // Fine-tuned value to further reduce drift
+
+// Function to measure distance using ultrasonic sensor
+long measure_distance() {
+    digitalWrite(TRIGGER_PIN, LOW);
+    delayMicroseconds(2);
+    digitalWrite(TRIGGER_PIN, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(TRIGGER_PIN, LOW);
+    long duration = pulseIn(ECHO_PIN, HIGH);
+    long distance_cm = duration * 0.034 / 2;
+    return distance_cm;
+}
 
 // Function to set motor speeds
 void motors_speed(int left_wheel_speed, int right_wheel_speed) {
@@ -86,9 +102,51 @@ void correct_path() {
     motors_speed(left_motor_speed, right_motor_speed);
 }
 
+// Function to rotate the robot 90 degrees to the right or left
+void rotate_90_degrees(bool clockwise) {
+    float x, y, z;
+    IMU.readGyroscope(x, y, z);  // Read the initial gyroscope values
+
+    float initial_angle = z * 180.0 / PI;  // Convert radians to degrees
+    float current_angle = initial_angle;
+    float target_angle = clockwise ? initial_angle + 90 : initial_angle - 90;
+
+    Serial.print("Initial angle: ");
+    Serial.println(initial_angle);
+    Serial.print("Target angle: ");
+    Serial.println(target_angle);
+
+    // Begin rotating
+    if (clockwise) {
+        motors_speed(30, -30);  // Rotate right
+        Serial.println("Rotating clockwise...");
+    } else {
+        motors_speed(-30, 30);  // Rotate left
+        Serial.println("Rotating counterclockwise...");
+    }
+
+    while (abs(current_angle - initial_angle) < 90) {
+        if (IMU.readGyroscope(x, y, z)) {
+            current_angle += z * 0.013;  // Accumulate angle change
+            Serial.print("Current angle: ");
+            Serial.println(current_angle);
+            delay(10);
+        }
+    }
+
+    // Stop the motors
+    motors_speed(0, 0);
+    Serial.println("90 degrees reached");
+    delay(2000); // Pause for 2 seconds before moving forward
+}
+
 void setup() {
     // Initialize serial communication
     Serial.begin(115200);
+
+    // Initialize ultrasonic sensor pins
+    pinMode(TRIGGER_PIN, OUTPUT);
+    pinMode(ECHO_PIN, INPUT);
 
     // Initialize motor pins
     pinMode(MOTOR1_PWM_PIN, OUTPUT);
@@ -110,20 +168,42 @@ void setup() {
 
     // Initialize timing for position updates
     previous_time = millis();
-
-    // Start the motors
-    motors_speed(30, 30);
 }
 
 void loop() {
-    // Update the current heading
-    update_heading();
+    long distance_cm = measure_distance();
 
-    // Update the current position
-    update_position();
+    if (distance_cm >= 2 && distance_cm <= 3) {
+        long distance_right, distance_left;
 
-    // Correct the robot's path to maintain a straight line
-    correct_path();
+        // Rotate 90 degrees to the right
+        rotate_90_degrees(true);
+        distance_right = measure_distance();
+
+        // Rotate 90 degrees back to the original position
+        rotate_90_degrees(false);
+
+        // Rotate 90 degrees to the left
+        rotate_90_degrees(false);
+        distance_left = measure_distance();
+
+        // Rotate 90 degrees back to the original position
+        rotate_90_degrees(true);
+
+        // Compare distances and move towards the direction with greater distance
+        if (distance_right > distance_left) {
+            // Turn right
+            rotate_90_degrees(true);
+        } else {
+            // Turn left
+            rotate_90_degrees(false);
+        }
+    } else {
+        // Move forward with straight path correction
+        update_heading();
+        update_position();
+        correct_path();
+    }
 
     // Add a small delay to avoid too frequent updates
     delay(10);
