@@ -3,13 +3,18 @@
     "configurations": [
         {
             "name": "Arduino",
+
             "compilerPath": "C:\\Users\\User\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\bin\\arm-none-eabi-g++",
+
+            "compilerPath": "C:\\Users\\proanovj\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\bin\\arm-none-eabi-g++",
+
             "compilerArgs": [
                 "-w",
                 "-nostdlib"
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
+
                 "C:\\Users\\User\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.5\\cores\\arduino",
                 "C:\\Users\\User\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.5\\variants\\ARDUINO_NANO33BLE",
                 "C:\\Users\\User\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.5\\cores\\arduino\\api\\deprecated",
@@ -22,7 +27,24 @@
                 "c:\\users\\user\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include"
             ],
             "forcedInclude": [
-                "C:\\Users\\User\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.5\\cores\\arduino\\Arduino.h"
+                "C:\\Users\\User\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.5\\cores\\arduino\\Arduino.h",
+
+                "C:\\Users\\proanovj\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.3\\cores\\arduino",
+                "C:\\Users\\proanovj\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.3\\variants\\ARDUINO_NANO33BLE",
+                "C:\\Users\\proanovj\\OneDrive - London South Bank University\\Documents\\Arduino\\libraries\\Arduino_LSM9DS1\\src",
+                "C:\\Users\\proanovj\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.3\\libraries\\Wire",
+                "C:\\Users\\proanovj\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.3\\cores\\arduino\\api\\deprecated",
+                "C:\\Users\\proanovj\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.3\\cores\\arduino\\api\\deprecated-avr-comp",
+                "c:\\users\\proanovj\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include\\c++\\7.2.1",
+                "c:\\users\\proanovj\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include\\c++\\7.2.1\\arm-none-eabi",
+                "c:\\users\\proanovj\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include\\c++\\7.2.1\\backward",
+                "c:\\users\\proanovj\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\lib\\gcc\\arm-none-eabi\\7.2.1\\include",
+                "c:\\users\\proanovj\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\lib\\gcc\\arm-none-eabi\\7.2.1\\include-fixed",
+                "c:\\users\\proanovj\\appdata\\local\\arduino15\\packages\\arduino\\tools\\arm-none-eabi-gcc\\7-2017q4\\arm-none-eabi\\include"
+            ],
+            "forcedInclude": [
+                "C:\\Users\\proanovj\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\mbed_nano\\4.1.3\\cores\\arduino\\Arduino.h"
+
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",

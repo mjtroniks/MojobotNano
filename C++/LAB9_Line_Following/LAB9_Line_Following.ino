@@ -118,7 +118,7 @@ void setup() {
 void loop() {
     int tracking_state = get_tracking();
     long distance_cm = measure_distance();
-
+    //delay(100);  // Adjust delay as needed
     if (distance_cm > 3) {
         if (tracking_state == 0) {
             // No line detected
@@ -150,5 +150,11 @@ void loop() {
         motors_speed(0, 0);  // Stop motors
     }
 
+
+    
+}
+
     delay(100);  // Adjust delay as needed
 }
+
+//

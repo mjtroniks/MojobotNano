@@ -45,7 +45,7 @@ void motorsSpeed(int left_wheel_speed, int right_wheel_speed) {
 
 void loop() {
   // Example usage
-  motorsSpeed(30, 30);
+  motorsSpeed(30, -30);//Change the value for negative values to reverse direction
   delay(2000); // Delay for 2 seconds
   motorsSpeed(0, 0);
   delay(2000); // Delay for 2 seconds
