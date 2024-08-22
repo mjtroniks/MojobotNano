@@ -127,12 +127,12 @@ void loop() {
             // Left sensor on line
             digitalWrite(LED_PIN_LEFT, HIGH);
             digitalWrite(LED_PIN_RIGHT, LOW);
-            motors_speed(50, 5);  // Turn right
+            motors_speed(30, 10);  // Turn right
         } else if (tracking_state == 10) {
             // Right sensor on line
             digitalWrite(LED_PIN_LEFT, LOW);
             digitalWrite(LED_PIN_RIGHT, HIGH);
-            motors_speed(5, 50);  // Turn left
+            motors_speed(10, 30);  // Turn left
         } else if (tracking_state == 11) {
             // Both sensors on line
             digitalWrite(LED_PIN_LEFT, HIGH);
