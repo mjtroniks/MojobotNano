@@ -125,9 +125,9 @@ void reverse_and_turn(int angle, bool turn_right) {
 
     // Turn 15 degrees based on collision direction
     if (turn_right) {
-        motors_speed(30, -30);  // Turn right
+        motors_speed(30, 20);  // Turn right
     } else {
-        motors_speed(-30, 30);  // Turn left
+        motors_speed(20, 30);  // Turn left
     }
     delay(300);  // Adjust based on motor speed and desired turn angle
 
