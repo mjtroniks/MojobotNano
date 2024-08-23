@@ -122,11 +122,11 @@ void loop() {
                 digitalWrite(LED_PIN_RIGHT_BLUE, HIGH);
             }
         } else if (tracking_state == 1) {
-            motors_speed(30, 20);  // Turn left
+            motors_speed(30, 10);  // Turn left
             digitalWrite(LED_PIN_LEFT_RED, HIGH);  // Turn on left LED
             digitalWrite(LED_PIN_RIGHT_RED, LOW);
         } else if (tracking_state == 10) {
-            motors_speed(20, 30);  // Turn right
+            motors_speed(10, 30);  // Turn right
             digitalWrite(LED_PIN_LEFT_RED, LOW);
             digitalWrite(LED_PIN_RIGHT_RED, HIGH);  // Turn on right LED
         } else if (tracking_state == 11) {

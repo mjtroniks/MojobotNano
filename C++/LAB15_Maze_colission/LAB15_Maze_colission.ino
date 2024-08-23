@@ -1,4 +1,3 @@
-#Mjtroniks
 #include <Arduino.h>
 #include <Arduino_LSM9DS1.h>  // Include the library for the built-in accelerometer and gyroscope
 
@@ -41,6 +40,7 @@ long measure_distance() {
     digitalWrite(TRIGGER_PIN, LOW);
     long duration = pulseIn(ECHO_PIN, HIGH);
     long distance_cm = duration * 0.034 / 2;
+    delay(50);
     return distance_cm;
 }
 
@@ -125,14 +125,14 @@ void reverse_and_turn(int angle, bool turn_right) {
 
     // Turn 15 degrees based on collision direction
     if (turn_right) {
-        motors_speed(30, 20);  // Turn right
+        motors_speed(30, -30);  // Turn right
     } else {
-        motors_speed(20, 30);  // Turn left
+        motors_speed(-30, 30);  // Turn left
     }
     delay(300);  // Adjust based on motor speed and desired turn angle
 
     // Resume forward movement
-    motors_speed(30, 30);
+    motors_speed(40, 40);
 }
 
 // Function to correct the robot's direction and position
@@ -222,6 +222,7 @@ void setup() {
 
 void loop() {
     long distance_cm = measure_distance();
+    
 
     if (distance_cm >= 2 && distance_cm <= 3) {
         long distance_right, distance_left;
