@@ -29,7 +29,6 @@ float measure_distance() {
 
     // Calculate distance in centimeters
     float distance = duration * 0.034 / 2;  // Speed of sound = 0.034 cm/us
-
     return distance;
 }
 

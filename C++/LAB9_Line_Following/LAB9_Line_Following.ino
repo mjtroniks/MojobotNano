@@ -34,6 +34,8 @@ long measure_distance() {
     digitalWrite(TRIGGER_PIN, LOW);
     long duration = pulseIn(ECHO_PIN, HIGH);
     long distance_cm = duration * 0.034 / 2;
+    delay(50); // avoiding rapid fluctuations that can occur if the sensor is read too frequently. Less False Triggering
+    
     return distance_cm;
 }
 
