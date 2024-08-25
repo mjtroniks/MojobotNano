@@ -18,9 +18,8 @@ Mojobot Nano by MJtroniks is an innovative robot based on Arduino Nano 33 BLE, d
 
 ## Get Started
 
-- [**Micropython**]()
 - [**C++**](https://github.com/mjtroniks/MojobotNano/wiki/Arduino-IDE-Introduction-and-Blink-Program)
-- [**Makecode**]()
+
 
 ## Features
 
