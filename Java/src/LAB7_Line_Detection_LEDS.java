@@ -10,8 +10,7 @@ public class LAB7_Line_Detection_LEDS extends PApplet {
     private Pin leftSensorPin, rightSensorPin;
 
     // Declare pins for LEDs
-    private Pin leftGreenPin, leftBluePin;
-    private Pin rightGreenPin, rightBluePin;
+    private Pin leftGreenPin, rightGreenPin;
     private IODevice arduino;
 
     public static void main(String[] args) {
@@ -37,17 +36,13 @@ public class LAB7_Line_Detection_LEDS extends PApplet {
             leftSensorPin = arduino.getPin(5);  // D5 for left sensor
             rightSensorPin = arduino.getPin(4); // D4 for right sensor
 
-            // Green and Blue LED pins
+            // Green LED pins
             leftGreenPin = arduino.getPin(10);  // D10 for Green on the left
-            leftBluePin = arduino.getPin(17);   // A3 for Blue on the left
             rightGreenPin = arduino.getPin(21); // A7 for Green on the right
-            rightBluePin = arduino.getPin(20);  // A6 for Blue on the right
 
             // Set LED pins to PWM mode
             leftGreenPin.setMode(Pin.Mode.PWM);
-            leftBluePin.setMode(Pin.Mode.PWM);
             rightGreenPin.setMode(Pin.Mode.PWM);
-            rightBluePin.setMode(Pin.Mode.PWM);
 
             // Set sensor pins to input mode
             leftSensorPin.setMode(Pin.Mode.INPUT);
@@ -62,33 +57,33 @@ public class LAB7_Line_Detection_LEDS extends PApplet {
     public void draw() {
         background(255);  // White background
 
-        // Control blue LEDs based on sensor readings
-        controlBlueLEDs();
+        // Control green LEDs based on sensor readings
+        controlGreenLEDs();
 
         // Draw sensor indicator squares
         drawSensorSquares();
     }
 
-    // Function to control blue LEDs based on sensor readings
-    public void controlBlueLEDs() {
+    // Function to control green LEDs based on sensor readings
+    public void controlGreenLEDs() {
         int trackingState = getTracking();
 
         try {
             if (trackingState == 0) {
-                // Both sensors on white surface, blue LEDs are OFF
-                leftBluePin.setValue(0);
-                rightBluePin.setValue(0);
+                // Both sensors on white surface, green LEDs are OFF
+                leftGreenPin.setValue(0);
+                rightGreenPin.setValue(0);
             } else {
-                // Black line detected by either or both sensors, blue LEDs are ON
+                // Black line detected by either or both sensors, green LEDs are ON
                 if (trackingState == 1 || trackingState == 11) {
-                    rightBluePin.setValue(255);  // Right sensor or both sensors triggered
+                    rightGreenPin.setValue(255);  // Right sensor or both sensors triggered
                 } else {
-                    rightBluePin.setValue(0);
+                    rightGreenPin.setValue(0);
                 }
                 if (trackingState == 10 || trackingState == 11) {
-                    leftBluePin.setValue(255);  // Left sensor or both sensors triggered
+                    leftGreenPin.setValue(255);  // Left sensor or both sensors triggered
                 } else {
-                    leftBluePin.setValue(0);
+                    leftGreenPin.setValue(0);
                 }
             }
         } catch (IOException e) {
@@ -113,27 +108,32 @@ public class LAB7_Line_Detection_LEDS extends PApplet {
         return -1; // Fallback case
     }
 
-    // Function to draw squares representing the sensor states
+    // Function to draw squares representing the sensor states, centered on the screen
     public void drawSensorSquares() {
-        float squareSize = 25;  // Define the size of the squares
+        float squareSize = 25;  // Set the size of the squares back to 25
+
+        // Calculate positions to center the squares
+        float leftSquareX = width / 2 - 75;  // 75 pixels left from center for the left square
+        float rightSquareX = width / 2 + 50;  // 50 pixels right from center for the right square
+        float squareY = height / 2 - squareSize / 2;  // Vertically center the squares
 
         int trackingState = getTracking();
 
         // Left square color logic
         if (trackingState == 10 || trackingState == 11) {
-            fill(0, 0, 255);  // Blue for left sensor triggered
+            fill(0, 255, 0);  // Green for left sensor triggered
         } else {
             fill(200);  // Light gray for inactive
         }
-        rect(200 - squareSize, 400, squareSize, squareSize);  // Left sensor square
+        rect(leftSquareX, squareY, squareSize, squareSize);  // Left sensor square
 
         // Right square color logic
         if (trackingState == 1 || trackingState == 11) {
-            fill(0, 0, 255);  // Blue for right sensor triggered
+            fill(0, 255, 0);  // Green for right sensor triggered
         } else {
             fill(200);  // Light gray for inactive
         }
-        rect(400 - squareSize, 400, squareSize, squareSize);  // Right sensor square
+        rect(rightSquareX, squareY, squareSize, squareSize);  // Right sensor square
     }
 
     public void stop() {
