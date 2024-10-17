@@ -1,9 +1,5 @@
 {
     "board": "arduino:mbed_nano:nano33ble",
-    "port": "COM18",
-    "sketch": "C++\\Blink\\Blink.ino",
-
-    "port": "COM14",
-    "sketch": "C++\\LAB10_Maze navigation_Acc\\LAB10_Maze navigation_Acc.ino"
-
+    "port": "COM13",
+    "sketch": "C++\\Blink\\Blink.ino"
 }
